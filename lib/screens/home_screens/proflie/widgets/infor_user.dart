@@ -1,4 +1,5 @@
 import 'package:clone_ui_tiktok/global/app_paths.dart';
+import 'package:clone_ui_tiktok/global/app_routers.dart';
 import 'package:clone_ui_tiktok/screens/home_screens/proflie/widgets/button_item.dart';
 import 'package:clone_ui_tiktok/screens/home_screens/proflie/widgets/button_profile.dart';
 import 'package:clone_ui_tiktok/screens/home_screens/proflie/widgets/size_box_profile.dart';
@@ -32,17 +33,23 @@ class InforUser extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizeBoxProfile(
-              label: 'Following',
-              number: '150',
-              sizeWidth: size.width * 0.2,
-              sizeHeigth: 50,
+            GestureDetector(
+              onTap: () => Navigator.of(context).pushNamed(AppRouters.follow),
+              child: SizeBoxProfile(
+                label: 'Following',
+                number: '150',
+                sizeWidth: size.width * 0.2,
+                sizeHeigth: 50,
+              ),
             ),
-            SizeBoxProfile(
-              label: 'Followers',
-              number: '50',
-              sizeWidth: size.width * 0.23,
-              sizeHeigth: 50,
+            GestureDetector(
+              onTap: () => Navigator.of(context).pushNamed(AppRouters.follow),
+              child: SizeBoxProfile(
+                label: 'Followers',
+                number: '50',
+                sizeWidth: size.width * 0.23,
+                sizeHeigth: 50,
+              ),
             ),
             SizeBoxProfile(
               label: 'Likes',
@@ -56,7 +63,9 @@ class InforUser extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ButtonProfile(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed(AppRouters.editProfile);
+              },
               borderBox: 5,
               color: const Color.fromARGB(255, 212, 210, 203),
               child: const TextApp(
@@ -82,9 +91,10 @@ class InforUser extends StatelessWidget {
               ),
               width: size.width * 0.1,
               // height: size.height * 0.1,
-              child: const ButtonItem(
+              child: ButtonItem(
                 icon: Icons.person_add_alt_1,
                 size: 25,
+                onPressed: () {},
               ),
             )
           ],

@@ -1,3 +1,4 @@
+import 'package:clone_ui_tiktok/global/app_routers.dart';
 import 'package:clone_ui_tiktok/screens/home_screens/proflie/user_librarys/favorite_user.dart';
 import 'package:clone_ui_tiktok/screens/home_screens/proflie/user_librarys/lock_user.dart';
 import 'package:clone_ui_tiktok/screens/home_screens/proflie/user_librarys/menu_user.dart';
@@ -30,6 +31,7 @@ class _ProfileState extends State<Profile> {
               onPressed: () {},
               icon: Icons.person_add_alt_outlined,
             ),
+            //TODO:
             titleName: 'Capybara',
             padding: 9,
             fontSize: 25,
@@ -41,7 +43,9 @@ class _ProfileState extends State<Profile> {
                 icon: const Icon(Icons.remove_red_eye),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushNamed(AppRouters.privacySetting);
+                },
                 icon: const Icon(Icons.menu),
               )
             ],
