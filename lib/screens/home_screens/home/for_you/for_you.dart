@@ -18,6 +18,7 @@ class ForYou extends StatelessWidget {
               text: 'Video 1',
               subText: 'xin chao buoi sang',
               img: AppPaths().caPi,
+              
             ),
             ItemVideo(
               url: AppVideo().videoB,

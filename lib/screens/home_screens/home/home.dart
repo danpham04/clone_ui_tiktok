@@ -1,6 +1,7 @@
 import 'package:clone_ui_tiktok/screens/home_screens/home/following/following.dart';
 import 'package:clone_ui_tiktok/screens/home_screens/home/for_you/for_you.dart';
 import 'package:clone_ui_tiktok/screens/home_screens/home/friends/friends.dart';
+import 'package:clone_ui_tiktok/storre/store_home/store_home.dart';
 import 'package:clone_ui_tiktok/widgets/tab_app.dart';
 import 'package:clone_ui_tiktok/widgets/text_app.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,13 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final StoreHome stores = StoreHome();
+  @override
+  void initState() {
+    stores.getData();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -75,12 +83,14 @@ class _HomeState extends State<Home> {
                     ),
                   ],
                 ),
-                const Expanded(
+                Expanded(
                   flex: 9,
                   child: TabBarView(children: [
-                    Friends(),
-                    Following(),
-                    ForYou(),
+                    const Friends(),
+                    Following(
+                      store: stores,
+                    ),
+                    const ForYou(),
                   ]),
                 )
               ],

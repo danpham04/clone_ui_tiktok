@@ -1,7 +1,9 @@
 import 'package:clone_ui_tiktok/screens/home_screens/home_screen.dart';
+import 'package:clone_ui_tiktok/screens/home_screens/proflie/add_friends/add_friend.dart';
 import 'package:clone_ui_tiktok/screens/home_screens/proflie/edit_proflie/edit_profile.dart';
 import 'package:clone_ui_tiktok/screens/home_screens/proflie/follow/follow.dart';
 import 'package:clone_ui_tiktok/screens/home_screens/proflie/privacy_and_setting/privacy_setting.dart';
+import 'package:clone_ui_tiktok/screens/home_screens/proflie/share_profile/share_profile.dart';
 import 'package:clone_ui_tiktok/screens/wait_screen/wait_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +13,8 @@ class AppRouters {
   static const String privacySetting = '/privacy_setting';
   static const String follow = '/follow';
   static const String editProfile = '/edit_profile';
+  static const String addFriend = '/add_friend';
+  static const String shareProfile = '/share_profile';
   static makeRouter({
     required BuildContext context,
     required String routeName,
@@ -27,6 +31,10 @@ class AppRouters {
         return const Follow();
       case editProfile:
         return const EditProfile();
+      case addFriend:
+        return const AddFriend();
+      case shareProfile:
+        return const ShareProfile();
       default:
         throw 'Route  $routeName is not define';
     }

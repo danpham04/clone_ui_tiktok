@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class Following extends StatelessWidget {
   const Following({super.key});
 
-  @override
+  @override  
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(

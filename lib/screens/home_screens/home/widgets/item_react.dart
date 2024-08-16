@@ -6,7 +6,7 @@ class ItemReact extends StatelessWidget {
   const ItemReact(
       {super.key, required this.icon, required this.text, this.onPressed});
   final IconData icon;
-  final String text;
+  final int text;
   final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class ItemReact extends StatelessWidget {
             size: 40,
           ),
           TextApp(
-            text: text,
+            text: text.toString(),
             color: Colors.white,
           )
         ],

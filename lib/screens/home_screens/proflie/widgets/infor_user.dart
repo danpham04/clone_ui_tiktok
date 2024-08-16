@@ -38,7 +38,7 @@ class InforUser extends StatelessWidget {
               child: SizeBoxProfile(
                 label: 'Following',
                 number: '150',
-                sizeWidth: size.width * 0.2,
+                sizeWidth: size.width * 0.23,
                 sizeHeigth: 50,
               ),
             ),
@@ -74,7 +74,8 @@ class InforUser extends StatelessWidget {
               ),
             ),
             ButtonProfile(
-              onPressed: () {},
+              onPressed: () =>
+                  Navigator.of(context).pushNamed(AppRouters.shareProfile),
               borderBox: 5,
               color: const Color.fromARGB(255, 212, 210, 203),
               child: const TextApp(

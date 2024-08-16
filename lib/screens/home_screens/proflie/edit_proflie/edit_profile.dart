@@ -1,4 +1,5 @@
 import 'package:clone_ui_tiktok/global/app_paths.dart';
+import 'package:clone_ui_tiktok/screens/home_screens/proflie/edit_proflie/edit_user.dart';
 import 'package:clone_ui_tiktok/widgets/app_bar_application.dart';
 import 'package:clone_ui_tiktok/widgets/text_app.dart';
 import 'package:flutter/material.dart';
@@ -16,32 +17,39 @@ class EditProfile extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              width: double.infinity,
-              height: 100,
-              decoration:
-                  const BoxDecoration(border: Border(bottom: BorderSide.none)),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CircleAvatar(
-                    backgroundImage: AssetImage(AppPaths().caPi),
-                    radius: 80,
-                  ),
-                  CircleAvatar(
-                    backgroundColor: const Color.fromARGB(255, 221, 204, 203),
-                    radius: 80,
-                    child: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.videocam_outlined,
-                          size: 40,
-                        )),
-                  )
-                ],
-              ),
-            )
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                CircleAvatar(
+                  backgroundImage: AssetImage(AppPaths().caPi),
+                  radius: 50,
+                ),
+                CircleAvatar(
+                  backgroundColor: const Color.fromARGB(255, 221, 204, 203),
+                  radius: 50,
+                  child: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.videocam_outlined,
+                        size: 40,
+                      )),
+                ),
+              ],
+            ),
+            const Padding(
+              padding: EdgeInsets.only(top: 8.0, left: 17.0, bottom: 8.0),
+              child: TextApp(text: 'About you'),
+            ),
+            const EditUser(name: 'Name', userName: 'Capybara'),
+            const EditUser(name: 'Username', userName: 'Capi_haha'),
+            const EditUser(name: 'Bio', userName: 'Add a bio to your profile'),
+            const Divider(),
+            const EditUser(
+                name: 'Instagram', userName: 'Add a Instagram to your profile'),
+            const EditUser(
+                name: 'Youtube', userName: 'Add a Youtube to your profile'),
           ],
         ),
       ),

@@ -28,7 +28,9 @@ class _ProfileState extends State<Profile> {
           appBar: AppBarApplication(
             heightAppBar: 80,
             leading: ButtonItem(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed(AppRouters.addFriend);
+              },
               icon: Icons.person_add_alt_outlined,
             ),
             //TODO:

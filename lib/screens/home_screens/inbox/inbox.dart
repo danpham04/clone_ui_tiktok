@@ -53,6 +53,7 @@ class _InboxState extends State<Inbox> {
               title: const TextApp(text: 'New followers'),
               subtitle: const TextApp(text: 'Thong bao moi'),
               trailing: const Icon(Icons.arrow_forward_ios),
+              onTap: () {},
             ),
             ListTile(
               leading: CircleAvatar(
@@ -66,6 +67,7 @@ class _InboxState extends State<Inbox> {
               title: const TextApp(text: 'Activities'),
               subtitle: const TextApp(text: 'Thong bao moi'),
               trailing: const Icon(Icons.arrow_forward_ios),
+              onTap: () {},
             ),
             const Padding(
               padding: EdgeInsets.only(left: 4.0),

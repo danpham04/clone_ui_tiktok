@@ -1,4 +1,3 @@
-import 'package:clone_ui_tiktok/global/app_routers.dart';
 import 'package:clone_ui_tiktok/widgets/text_app.dart';
 import 'package:flutter/material.dart';
 
