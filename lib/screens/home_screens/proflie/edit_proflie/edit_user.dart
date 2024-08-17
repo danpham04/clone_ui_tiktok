@@ -7,7 +7,6 @@ class EditUser extends StatelessWidget {
   final String userName;
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
     return ListTile(
       onTap: () {},
       leading: TextApp(

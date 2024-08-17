@@ -1,5 +1,3 @@
-import 'package:clone_ui_tiktok/data/model/video_model.dart';
-import 'package:clone_ui_tiktok/global/app_routers.dart';
 import 'package:clone_ui_tiktok/screens/home_screens/home/widgets/item_react.dart';
 import 'package:clone_ui_tiktok/storre/store_home/store_home.dart';
 import 'package:clone_ui_tiktok/widgets/text_app.dart';
@@ -7,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:video_player/video_player.dart';
 
-class ItemVideo extends StatefulWidget {
-  const ItemVideo({
+class ItemVideos extends StatefulWidget {
+  const ItemVideos({
     super.key,
     required this.url,
     required this.text,
@@ -17,7 +15,7 @@ class ItemVideo extends StatefulWidget {
     this.favorite,
     this.message,
     this.save,
-    this.share, required this.user,
+    this.share,
   });
   final String url;
   final String text;
@@ -27,12 +25,12 @@ class ItemVideo extends StatefulWidget {
   final int? message;
   final int? save;
   final int? share;
-  final VideoModel user;
+
   @override
-  State<ItemVideo> createState() => _ItemVideoState();
+  State<ItemVideos> createState() => _ItemVideoState();
 }
 
-class _ItemVideoState extends State<ItemVideo> {
+class _ItemVideoState extends State<ItemVideos> {
   late StoreHome videoStore;
 
   @override
@@ -108,10 +106,9 @@ class _ItemVideoState extends State<ItemVideo> {
           child: Column(
             children: [
               GestureDetector(
-                onTap: () =>
-                    Navigator.of(context).pushNamed(AppRouters.showuser,arguments: widget.user),
+                onTap: () {},
                 child: CircleAvatar(
-                  backgroundImage: NetworkImage(widget.img),
+                  backgroundImage: AssetImage(widget.img),
                   radius: 23,
                 ),
               ),

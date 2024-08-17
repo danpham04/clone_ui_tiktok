@@ -40,6 +40,7 @@ class _FollowingState extends State<Following> {
                 message: store.message,
                 save: store.save,
                 share: store.share,
+                user: store,
               );
             },
           )

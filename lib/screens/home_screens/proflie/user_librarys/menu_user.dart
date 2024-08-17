@@ -5,6 +5,11 @@ class MenuUser extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text('xin chao1'));
+    return const Center(
+        child: Column(
+      children: [
+
+      ],
+    ));
   }
 }

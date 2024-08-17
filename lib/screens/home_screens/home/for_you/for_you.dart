@@ -1,11 +1,12 @@
 import 'package:clone_ui_tiktok/global/app_paths.dart';
 import 'package:clone_ui_tiktok/global/app_video.dart';
-import 'package:clone_ui_tiktok/screens/home_screens/home/widgets/item_video.dart';
+import 'package:clone_ui_tiktok/screens/home_screens/home/widgets/item_videos.dart';
+import 'package:clone_ui_tiktok/storre/store_home/store_home.dart';
 import 'package:flutter/material.dart';
 
 class ForYou extends StatelessWidget {
-  const ForYou({super.key});
-
+  const ForYou({super.key, required this.store});
+  final StoreHome store;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -13,30 +14,32 @@ class ForYou extends StatelessWidget {
         PageView(
           scrollDirection: Axis.vertical,
           children: [
-            ItemVideo(
+            ItemVideos(
+              
               url: AppVideo().videoA,
               text: 'Video 1',
               subText: 'xin chao buoi sang',
-              img: AppPaths().caPi,
+              img: AppPaths().caPi, 
               
             ),
-            ItemVideo(
+            ItemVideos(
               url: AppVideo().videoB,
               text: 'Video 2',
               img: AppPaths().caPiChill,
+              
             ),
-            ItemVideo(
+            ItemVideos(
               url: AppVideo().videoC,
               text: 'Video 3',
               img: AppPaths().caPiNgap,
             ),
-            ItemVideo(
+            ItemVideos(
               url: AppVideo().videoD,
               text: 'Video 4',
               subText: 'xin chao buoi sang',
               img: AppPaths().caPiCo,
             ),
-            ItemVideo(
+            ItemVideos(
               url: AppVideo().videoE,
               text: 'Video 5',
               subText: 'nong vai lo ton oi troi ơiiiiiii',

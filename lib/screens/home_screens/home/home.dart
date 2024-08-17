@@ -7,17 +7,18 @@ import 'package:clone_ui_tiktok/widgets/text_app.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key});
-
+  const Home({super.key, required this.store});
+  final StoreHome store;
   @override
   State<Home> createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
-  final StoreHome stores = StoreHome();
+  // final StoreHome stores = StoreHome();
+  late StoreHome stores;
   @override
   void initState() {
-    stores.getData();
+    stores = widget.store;
     super.initState();
   }
 
@@ -26,6 +27,7 @@ class _HomeState extends State<Home> {
     return Padding(
       padding: const EdgeInsets.only(top: 8.0),
       child: DefaultTabController(
+          initialIndex: 2,
           length: 3,
           animationDuration: const Duration(seconds: 1),
           child: Scaffold(
@@ -90,7 +92,9 @@ class _HomeState extends State<Home> {
                     Following(
                       store: stores,
                     ),
-                    const ForYou(),
+                    ForYou(
+                      store: stores,
+                    ),
                   ]),
                 )
               ],

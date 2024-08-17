@@ -4,6 +4,7 @@ import 'package:clone_ui_tiktok/screens/home_screens/home/home.dart';
 import 'package:clone_ui_tiktok/screens/home_screens/inbox/inbox.dart';
 import 'package:clone_ui_tiktok/screens/home_screens/proflie/profile.dart';
 import 'package:clone_ui_tiktok/screens/home_screens/shop/shop.dart';
+import 'package:clone_ui_tiktok/storre/store_home/store_home.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -14,14 +15,22 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final StoreHome stores = StoreHome();
+  late final List<Widget> _widgets;
   int _index = 0;
-  final _widgets = [
-    const Home(),
-    const Shop(),
-    const Camera(),
-    const Inbox(),
-    const Profile(),
-  ];
+  @override
+  void initState() {
+    stores.getData();
+    _widgets = [
+      Home(store: stores),
+      const Shop(),
+      const Camera(),
+      const Inbox(),
+      const Profile(),
+    ];
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

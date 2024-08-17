@@ -1,6 +1,5 @@
 import 'package:clone_ui_tiktok/global/app_paths.dart';
 import 'package:clone_ui_tiktok/screens/home_screens/proflie/widgets/button_item.dart';
-import 'package:clone_ui_tiktok/widgets/app_bar_application.dart';
 import 'package:clone_ui_tiktok/widgets/text_app.dart';
 import 'package:flutter/material.dart';
 

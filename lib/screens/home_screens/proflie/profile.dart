@@ -26,7 +26,7 @@ class _ProfileState extends State<Profile> {
         animationDuration: const Duration(seconds: 1),
         child: Scaffold(
           appBar: AppBarApplication(
-            heightAppBar: 80,
+            heightAppBar: 60,
             leading: ButtonItem(
               onPressed: () {
                 Navigator.of(context).pushNamed(AppRouters.addFriend);
@@ -52,20 +52,19 @@ class _ProfileState extends State<Profile> {
               )
             ],
           ),
-          body: const Column(
-            children: [
-              InforUser(),
-              SizedBox(
-                height: 10,
-              ),
-              Expanded(
-                child: SizedBox(
-                  width: double.infinity,
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                const InforUser(),
+                const SizedBox(
+                  height: 10,
+                ),
+                const SizedBox(
+                  // width: double.infinity,
                   height: 50,
                   child: TabBar(
                     indicatorColor: Colors.blue,
                     indicatorSize: TabBarIndicatorSize.label,
-                    // dividerHeight: 3,
                     indicatorWeight: 2,
                     tabs: [
                       TabApp(
@@ -83,19 +82,19 @@ class _ProfileState extends State<Profile> {
                     ],
                   ),
                 ),
-              ),
-              Expanded(
-                flex: 9,
-                child: TabBarView(
-                  children: [
-                    MenuUser(),
-                    LockUser(),
-                    SaveUser(),
-                    FavoriteUser(),
-                  ],
-                ),
-              )
-            ],
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.5,
+                  child: const TabBarView(
+                    children: [
+                      MenuUser(),
+                      LockUser(),
+                      SaveUser(),
+                      FavoriteUser(),
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
