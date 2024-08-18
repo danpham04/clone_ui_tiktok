@@ -13,6 +13,7 @@ class VideoModel {
   final int followers;
   final int likes;
   final String nameAcc;
+  final String id;
 
   VideoModel({
     required this.video,
@@ -29,6 +30,7 @@ class VideoModel {
     required this.followers,
     required this.likes,
     required this.nameAcc,
+    this.id = '',
   });
 
   factory VideoModel.fromJson(Map<String, dynamic> map) {
@@ -46,7 +48,8 @@ class VideoModel {
         nameAcc: map['nameAcc'],
         followers: map['followers'],
         following: map['following'],
-        likes: map['likes']);
+        likes: map['likes'],
+        id: map['id']);
   }
 
   Map<String, dynamic> toJson() {
@@ -64,7 +67,49 @@ class VideoModel {
       'following': following,
       'followers': followers,
       'likes': likes,
-      'nameAcc': nameAcc
+      'nameAcc': nameAcc,
+      'id': id
     };
+  }
+
+  Map<String, dynamic> toJsonFa(){
+    return{
+      'favorite': favorite,
+    };
+  }
+  VideoModel copyWith({
+    String? video,
+    String? imgAvt,
+    String? userName,
+    String? text,
+    String? textSong,
+    String? avtMusic,
+    int? favorite,
+    int? message,
+    int? save,
+    int? share,
+    int? following,
+    int? followers,
+    int? likes,
+    String? nameAcc,
+    String? id,
+  }) {
+    return VideoModel(
+      video: video ?? this.video,
+      imgAvt: imgAvt ?? this.imgAvt,
+      userName: userName ?? this.userName,
+      text: text ?? this.text,
+      textSong: textSong ?? this.textSong,
+      avtMusic: avtMusic ?? this.avtMusic,
+      favorite: favorite ?? this.favorite,
+      message: message ?? this.message,
+      save: save ?? this.save,
+      share: share ?? this.share,
+      following: following ?? this.following,
+      followers: followers ?? this.followers,
+      likes: likes ?? this.likes,
+      nameAcc: nameAcc ?? this.nameAcc,
+      id: id ?? this.id,
+    );
   }
 }

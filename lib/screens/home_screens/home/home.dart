@@ -5,6 +5,7 @@ import 'package:clone_ui_tiktok/storre/store_home/store_home.dart';
 import 'package:clone_ui_tiktok/widgets/tab_app.dart';
 import 'package:clone_ui_tiktok/widgets/text_app.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key, required this.store});
@@ -25,25 +26,27 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 8.0),
+      padding: EdgeInsets.only(top: 8.0.sp),
       child: DefaultTabController(
-          initialIndex: 2,
-          length: 3,
-          animationDuration: const Duration(seconds: 1),
-          child: Scaffold(
-            body: Column(
+        initialIndex: 2,
+        length: 3,
+        animationDuration: const Duration(seconds: 1),
+        child: Scaffold(
+          body: Container(
+            color: Colors.transparent,
+            child: Column(
               children: [
                 Row(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(top: 20.0),
+                      padding: EdgeInsets.only(top: 20.0.sp),
                       child: IconButton(
                         icon: const Icon(Icons.live_tv_outlined),
-                        iconSize: 30,
+                        iconSize: 30.sp,
                         onPressed: () {},
                       ),
                     ),
-                    const Expanded(
+                    Expanded(
                       child: SizedBox(
                         width: double.infinity,
                         child: TabBar(
@@ -53,21 +56,21 @@ class _HomeState extends State<Home> {
                             TabApp(
                               widget: TextApp(
                                 text: 'Friends',
-                                size: 13,
+                                size: 13.sp,
                                 weightText: FontWeight.bold,
                               ),
                             ),
                             TabApp(
                               widget: TextApp(
                                 text: 'Following',
-                                size: 13,
+                                size: 13.sp,
                                 weightText: FontWeight.bold,
                               ),
                             ),
                             TabApp(
                               widget: TextApp(
                                 text: 'For you',
-                                size: 13,
+                                size: 13.sp,
                                 weightText: FontWeight.bold,
                               ),
                             ),
@@ -76,10 +79,10 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 25.0),
+                      padding: EdgeInsets.only(top: 25.0.sp),
                       child: IconButton(
                         icon: const Icon(Icons.search),
-                        iconSize: 30,
+                        iconSize: 30.sp,
                         onPressed: () {},
                       ),
                     ),
@@ -87,19 +90,23 @@ class _HomeState extends State<Home> {
                 ),
                 Expanded(
                   flex: 9,
-                  child: TabBarView(children: [
-                    const Friends(),
-                    Following(
-                      store: stores,
-                    ),
-                    ForYou(
-                      store: stores,
-                    ),
-                  ]),
+                  child: TabBarView(
+                    children: [
+                      const Friends(),
+                      Following(
+                        store: stores,
+                      ),
+                      ForYou(
+                        store: stores,
+                      ),
+                    ],
+                  ),
                 )
               ],
             ),
-          )),
+          ),
+        ),
+      ),
     );
   }
 }

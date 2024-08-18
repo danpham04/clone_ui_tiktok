@@ -10,23 +10,9 @@ import 'package:video_player/video_player.dart';
 class ItemVideo extends StatefulWidget {
   const ItemVideo({
     super.key,
-    required this.url,
-    required this.text,
-    this.subText = '',
-    required this.img,
-    this.favorite,
-    this.message,
-    this.save,
-    this.share, required this.user,
+     required this.user,
   });
-  final String url;
-  final String text;
-  final String subText;
-  final String img;
-  final int? favorite;
-  final int? message;
-  final int? save;
-  final int? share;
+  
   final VideoModel user;
   @override
   State<ItemVideo> createState() => _ItemVideoState();
@@ -45,7 +31,7 @@ class _ItemVideoState extends State<ItemVideo> {
     //   });
     // _controller.play();
     videoStore = StoreHome();
-    videoStore.initialize(widget.url);
+    videoStore.initialize(widget.user.video);
     super.initState();
   }
 
@@ -86,7 +72,7 @@ class _ItemVideoState extends State<ItemVideo> {
               SizedBox(
                 width: size.width * 0.8,
                 child: TextApp(
-                  text: widget.text,
+                  text: widget.user.userName,
                   size: 25,
                   color: Colors.white,
                   alignText: TextAlign.start,
@@ -95,7 +81,7 @@ class _ItemVideoState extends State<ItemVideo> {
               SizedBox(
                 width: size.width * 0.8,
                 child: TextApp(
-                  text: widget.subText,
+                  text: widget.user.text,
                   color: Colors.white,
                 ),
               ),
@@ -111,28 +97,28 @@ class _ItemVideoState extends State<ItemVideo> {
                 onTap: () =>
                     Navigator.of(context).pushNamed(AppRouters.showuser,arguments: widget.user),
                 child: CircleAvatar(
-                  backgroundImage: NetworkImage(widget.img),
+                  backgroundImage: NetworkImage(widget.user.imgAvt),
                   radius: 23,
                 ),
               ),
               ItemReact(
                 icon: Icons.favorite,
-                text: widget.favorite ?? 200,
+                text: widget.user.favorite ,
                 onPressed: () {},
               ),
               ItemReact(
                 icon: Icons.message,
-                text: widget.message ?? 200,
+                text: widget.user.message ,
                 onPressed: () {},
               ),
               ItemReact(
                 icon: Icons.bookmark,
-                text: widget.save ?? 200,
+                text: widget.user.save ,
                 onPressed: () {},
               ),
               ItemReact(
                 icon: Icons.screen_share_outlined,
-                text: widget.share ?? 200,
+                text: widget.user.share ,
                 onPressed: () {},
               )
             ],

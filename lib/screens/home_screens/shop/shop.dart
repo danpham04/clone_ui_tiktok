@@ -1,5 +1,6 @@
 import 'package:clone_ui_tiktok/screens/home_screens/shop/widgets/item_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Shop extends StatefulWidget {
   const Shop({super.key});
@@ -23,16 +24,14 @@ class _ShopState extends State<Shop> {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            const SizedBox(
-              height: 50,
-            ),
+            45.verticalSpace,
             Container(
               padding: const EdgeInsets.only(left: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SizedBox(
-                    width: size.width * 0.83,
+                    width: size.width * 0.83.sp,
                     child: TextFormField(
                       decoration: const InputDecoration(
                         suffixIcon: Icon(
@@ -49,7 +48,7 @@ class _ShopState extends State<Shop> {
                     ),
                   ),
                   SizedBox(
-                    width: size.width * 0.1,
+                    width: size.width * 0.1.sp,
                     child: const Icon(
                       Icons.shopping_cart_outlined,
                       size: 30,

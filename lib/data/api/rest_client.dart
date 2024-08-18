@@ -134,5 +134,5 @@ class RestClient {
       rethrow;
     }
   }
-
+  //TODO: Custom lỗi ApiError
 }

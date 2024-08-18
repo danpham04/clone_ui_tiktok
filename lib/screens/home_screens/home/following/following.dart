@@ -12,7 +12,6 @@ class Following extends StatefulWidget {
 }
 
 class _FollowingState extends State<Following> {
-
   late StoreHome stores;
 
   @override
@@ -32,14 +31,6 @@ class _FollowingState extends State<Following> {
             itemBuilder: (context, index) {
               final VideoModel store = stores.video[index];
               return ItemVideo(
-                url: store.video,
-                text: store.userName,
-                subText: store.text,
-                img: store.imgAvt,
-                favorite: store.favorite,
-                message: store.message,
-                save: store.save,
-                share: store.share,
                 user: store,
               );
             },

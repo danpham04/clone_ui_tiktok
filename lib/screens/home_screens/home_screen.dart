@@ -6,6 +6,7 @@ import 'package:clone_ui_tiktok/screens/home_screens/proflie/profile.dart';
 import 'package:clone_ui_tiktok/screens/home_screens/shop/shop.dart';
 import 'package:clone_ui_tiktok/storre/store_home/store_home.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -49,11 +50,12 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
             label: '',
             icon: IconButton(
-                onPressed: () {},
-                icon: Image.asset(
-                  AppPaths().chupanh,
-                  width: 50,
-                )),
+              onPressed: () {},
+              icon: Image.asset(
+                AppPaths().chupanh,
+                width: 50.sp,
+              ),
+            ),
           ),
           const BottomNavigationBarItem(
               icon: Icon(Icons.inbox_outlined),
@@ -64,16 +66,18 @@ class _HomeScreenState extends State<HomeScreen> {
               activeIcon: Icon(Icons.person),
               label: 'Profile'),
         ],
-        iconSize: 30,
+        iconSize: 30.sp,
         backgroundColor: Colors.white,
         type: BottomNavigationBarType.fixed,
         // type: BottomNavigationBarType.shifting,
         selectedItemColor: Colors.blue,
         unselectedItemColor: Colors.grey,
         onTap: (value) {
-          setState(() {
-            _index = value;
-          });
+          setState(
+            () {
+              _index = value;
+            },
+          );
         },
         currentIndex: _index,
       ),

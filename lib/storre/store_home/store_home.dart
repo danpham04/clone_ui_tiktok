@@ -14,7 +14,7 @@ abstract class _StoreHome with Store {
   late VideoPlayerController controller;
   @observable
   bool isPlaying = true;
-
+  
   @action
   Future<void> getData() async {
     try {
@@ -59,4 +59,14 @@ abstract class _StoreHome with Store {
   Future<void> dispose() async {
     await controller.dispose();
   }
+
+  @observable
+  bool isFollowing = false;
+
+  @action
+  void toggleFollow() {
+    isFollowing = !isFollowing;
+  }
+
+
 }
