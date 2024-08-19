@@ -77,6 +77,7 @@ class VideoModel {
       'favorite': favorite,
     };
   }
+  
   VideoModel copyWith({
     String? video,
     String? imgAvt,

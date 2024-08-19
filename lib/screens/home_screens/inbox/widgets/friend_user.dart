@@ -27,13 +27,7 @@ class FriendUser extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 8,
-              ),
-              const TextApp(
-                text: 'Create',
-                weightText: FontWeight.bold,
-              )
+              
             ],
           ),
           Row(

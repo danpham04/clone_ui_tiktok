@@ -40,6 +40,22 @@ mixin _$StoreHome on _StoreHome, Store {
     });
   }
 
+  late final _$isFollowingAtom =
+      Atom(name: '_StoreHome.isFollowing', context: context);
+
+  @override
+  bool get isFollowing {
+    _$isFollowingAtom.reportRead();
+    return super.isFollowing;
+  }
+
+  @override
+  set isFollowing(bool value) {
+    _$isFollowingAtom.reportWrite(value, super.isFollowing, () {
+      super.isFollowing = value;
+    });
+  }
+
   late final _$getDataAsyncAction =
       AsyncAction('_StoreHome.getData', context: context);
 
@@ -101,10 +117,22 @@ mixin _$StoreHome on _StoreHome, Store {
   }
 
   @override
+  void toggleFollow() {
+    final _$actionInfo = _$_StoreHomeActionController.startAction(
+        name: '_StoreHome.toggleFollow');
+    try {
+      return super.toggleFollow();
+    } finally {
+      _$_StoreHomeActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 video: ${video},
-isPlaying: ${isPlaying}
+isPlaying: ${isPlaying},
+isFollowing: ${isFollowing}
     ''';
   }
 }

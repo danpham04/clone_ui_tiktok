@@ -10,9 +10,9 @@ import 'package:video_player/video_player.dart';
 class ItemVideo extends StatefulWidget {
   const ItemVideo({
     super.key,
-     required this.user,
+    required this.user,
   });
-  
+
   final VideoModel user;
   @override
   State<ItemVideo> createState() => _ItemVideoState();
@@ -94,8 +94,8 @@ class _ItemVideoState extends State<ItemVideo> {
           child: Column(
             children: [
               GestureDetector(
-                onTap: () =>
-                    Navigator.of(context).pushNamed(AppRouters.showuser,arguments: widget.user),
+                onTap: () => Navigator.of(context)
+                    .pushNamed(AppRouters.showuser, arguments: widget.user),
                 child: CircleAvatar(
                   backgroundImage: NetworkImage(widget.user.imgAvt),
                   radius: 23,
@@ -103,22 +103,22 @@ class _ItemVideoState extends State<ItemVideo> {
               ),
               ItemReact(
                 icon: Icons.favorite,
-                text: widget.user.favorite ,
+                text: widget.user.favorite,
                 onPressed: () {},
               ),
               ItemReact(
                 icon: Icons.message,
-                text: widget.user.message ,
+                text: widget.user.message,
                 onPressed: () {},
               ),
               ItemReact(
                 icon: Icons.bookmark,
-                text: widget.user.save ,
+                text: widget.user.save,
                 onPressed: () {},
               ),
               ItemReact(
                 icon: Icons.screen_share_outlined,
-                text: widget.user.share ,
+                text: widget.user.share,
                 onPressed: () {},
               )
             ],

@@ -37,6 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: _widgets[_index],
       bottomNavigationBar: BottomNavigationBar(
+        //
         items: [
           const BottomNavigationBarItem(
             icon: Icon(Icons.home_outlined),
@@ -68,10 +69,15 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
         iconSize: 30.sp,
         backgroundColor: Colors.white,
-        type: BottomNavigationBarType.fixed,
+        type: BottomNavigationBarType.fixed, // hiển thị bottom bar hiển thị theo dạng kích thuowvs và khoảng cách cố định
         // type: BottomNavigationBarType.shifting,
-        selectedItemColor: Colors.blue,
-        unselectedItemColor: Colors.grey,
+        showSelectedLabels:
+            true, // hiển thị label của tab khi đang ở tab đó - false khi đang đứng ở tab nào thì label của nó biết mất
+        showUnselectedLabels:
+            true, // hiển thị label của tab khác - false ko show label của tab còn lại
+        selectedItemColor: Colors.blue, // hiển thị màu của phần tử đó khi được chọn đến tab đó
+
+        unselectedItemColor: Colors.grey, // hiển thị màu của phần tử khác khi nó ko được chọn
         onTap: (value) {
           setState(
             () {
@@ -79,6 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
             },
           );
         },
+        // currentIndex: để theo dõi tab hiện tại, lưu vị trí hiện tại của tab khi điểu hướng
         currentIndex: _index,
       ),
     );
