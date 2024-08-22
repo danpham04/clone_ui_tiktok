@@ -10,10 +10,11 @@ import 'package:video_player/video_player.dart';
 class ItemVideo extends StatefulWidget {
   const ItemVideo({
     super.key,
-    required this.user,
+    required this.user, required this.id,
   });
 
   final VideoModel user;
+  final String id;
   @override
   State<ItemVideo> createState() => _ItemVideoState();
 }
@@ -97,27 +98,42 @@ class _ItemVideoState extends State<ItemVideo> {
                 onTap: () => Navigator.of(context)
                     .pushNamed(AppRouters.showuser, arguments: widget.user),
                 child: CircleAvatar(
-                  backgroundImage: NetworkImage(widget.user.imgAvt),
+                  backgroundImage: AssetImage(widget.user.imgAvt),
                   radius: 23,
                 ),
               ),
-              ItemReact(
-                icon: Icons.favorite,
-                text: widget.user.favorite,
-                onPressed: () {},
+              Observer(
+                builder: (context) {
+                  return ItemReact(
+                    icon: videoStore.checkfavorite
+                        ? const Icon(
+                            Icons.favorite,
+                            color: Colors.white,
+                          )
+                        : const Icon(
+                            Icons.favorite,
+                            color: Colors.red,
+                          ),
+                    text: widget.user.favorite,
+                    onPressed: () {
+                      videoStore.countFavorite(widget.user.favorite);
+                      videoStore.updateFavorite(id: widget.id, videos: widget.user);
+                    },
+                  );
+                },
               ),
               ItemReact(
-                icon: Icons.message,
+                icon: const Icon(Icons.message),
                 text: widget.user.message,
                 onPressed: () {},
               ),
               ItemReact(
-                icon: Icons.bookmark,
+                icon: const Icon(Icons.bookmark),
                 text: widget.user.save,
                 onPressed: () {},
               ),
               ItemReact(
-                icon: Icons.screen_share_outlined,
+                icon: const Icon(Icons.screen_share_outlined),
                 text: widget.user.share,
                 onPressed: () {},
               )

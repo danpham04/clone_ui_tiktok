@@ -6,8 +6,8 @@ class RestClient {
   RestClient({required String url}) {
     final BaseOptions options = BaseOptions(
         baseUrl: url,
-        connectTimeout: const Duration(seconds: 3),
-        sendTimeout: const Duration(seconds: 3),
+        connectTimeout: const Duration(seconds: 5),
+        sendTimeout: const Duration(seconds: 5),
         contentType: Headers.jsonContentType);
     _dio = Dio(options);
 

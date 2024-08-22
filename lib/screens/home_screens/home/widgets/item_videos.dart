@@ -113,24 +113,22 @@ class _ItemVideoState extends State<ItemVideos> {
                 ),
               ),
               ItemReact(
-                icon: Icons.favorite,
+                icon: const Icon(Icons.favorite),
                 text: widget.favorite ?? 200,
-                onPressed: () {
-                  
-                },
+                onPressed: () {},
               ),
               ItemReact(
-                icon: Icons.message,
+                icon: const Icon(Icons.message),
                 text: widget.message ?? 200,
                 onPressed: () {},
               ),
               ItemReact(
-                icon: Icons.bookmark,
+                icon: const Icon(Icons.bookmark),
                 text: widget.save ?? 200,
                 onPressed: () {},
               ),
               ItemReact(
-                icon: Icons.screen_share_outlined,
+                icon: const Icon(Icons.screen_share_outlined),
                 text: widget.share ?? 200,
                 onPressed: () {},
               )

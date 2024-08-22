@@ -72,11 +72,6 @@ class VideoModel {
     };
   }
 
-  Map<String, dynamic> toJsonFa(){
-    return{
-      'favorite': favorite,
-    };
-  }
   
   VideoModel copyWith({
     String? video,

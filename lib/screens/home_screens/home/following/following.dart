@@ -32,6 +32,7 @@ class _FollowingState extends State<Following> {
               final VideoModel store = stores.video[index];
               return ItemVideo(
                 user: store,
+                id: store.id,
               );
             },
           )

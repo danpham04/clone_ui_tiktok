@@ -5,7 +5,7 @@ import 'package:clone_ui_tiktok/data/model/video_model.dart';
 import 'package:clone_ui_tiktok/data/repository/video_repository.dart';
 
 class VideoServices extends VideoRepository {
-  final RestClient _restClient = RestClient(url: BaseConfig().api_video);
+  final RestClient _restClient = RestClient(url: BaseConfig().apiVideo);
   @override
   Future<List<VideoModel>> getData({String? key, String? value}) async {
     try {
@@ -29,7 +29,7 @@ class VideoServices extends VideoRepository {
     try {
       final response = await _restClient.put(
         '/apihome/$id',
-        data: newUser.toJsonFa(),
+        data: newUser.toJson(),
       );
       if (response is Map<String, dynamic>) {
         return VideoModel.fromJson(response);

@@ -67,6 +67,38 @@ abstract class _StoreHome with Store {
   void toggleFollow() {
     isFollowing = !isFollowing;
   }
+  @observable
+  int favorite = 0;
 
+  @observable
+  String message = '';
+
+  @observable
+  bool checkfavorite = true;
+  
+  @action
+  void countFavorite(int updateFavorite){
+    if(checkfavorite){
+      favorite = updateFavorite + 1;
+    checkfavorite = false;
+    }else{
+    favorite = updateFavorite - 1;
+    checkfavorite = true;
+    }
+  }
+  
+
+  @action 
+  Future<bool> updateFavorite({required String id,required VideoModel videos}) async{
+    VideoModel newVideo = VideoModel(video: videos.video, imgAvt: videos.imgAvt, userName: videos.userName, text: videos.text, textSong: videos.textSong, avtMusic: videos.avtMusic, favorite: favorite, message: videos.message, save: videos.save, share: videos.share, following: videos.following, followers: videos.followers, likes: videos.likes, nameAcc: videos.nameAcc);
+    try {
+      VideoModel video = await _videoServices.increaseFavorite(newUser: newVideo, id: id);
+      message = '+1 yêu hích';
+      return true;
+    } catch (e) {
+      message = 'lỗi tùy chọn';
+      return false;
+    }
+  }
 
 }
