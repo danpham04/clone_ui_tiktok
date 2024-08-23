@@ -10,7 +10,8 @@ import 'package:video_player/video_player.dart';
 class ItemVideo extends StatefulWidget {
   const ItemVideo({
     super.key,
-    required this.user, required this.id,
+    required this.user,
+    required this.id,
   });
 
   final VideoModel user;
@@ -32,7 +33,10 @@ class _ItemVideoState extends State<ItemVideo> {
     //   });
     // _controller.play();
     videoStore = StoreHome();
+    videoStore.setFavorite(widget.user.favorite);
+    videoStore.setCheckFavorite(widget.user.checkFavorite!);
     videoStore.initialize(widget.user.video);
+
     super.initState();
   }
 
@@ -108,16 +112,19 @@ class _ItemVideoState extends State<ItemVideo> {
                     icon: videoStore.checkfavorite
                         ? const Icon(
                             Icons.favorite,
-                            color: Colors.white,
+                            color: Colors.pink,
                           )
                         : const Icon(
                             Icons.favorite,
-                            color: Colors.red,
+                            color: Colors.white,
                           ),
-                    text: widget.user.favorite,
-                    onPressed: () {
-                      videoStore.countFavorite(widget.user.favorite);
-                      videoStore.updateFavorite(id: widget.id, videos: widget.user);
+                    text: videoStore.favorite,
+                    onPressed: () async {
+                      
+                      videoStore.countFavorite(videoStore.favorite);
+
+                      await videoStore.updateFavorite(
+                          id: widget.id, videos: widget.user);
                     },
                   );
                 },

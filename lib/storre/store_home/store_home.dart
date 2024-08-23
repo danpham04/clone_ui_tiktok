@@ -9,12 +9,20 @@ class StoreHome = _StoreHome with _$StoreHome;
 abstract class _StoreHome with Store {
   final VideoServices _videoServices = VideoServices();
   @observable
+  int currentIndex = 0;
+
+  @action
+  void setCurrentIndex(int index) {
+    currentIndex = index;
+  }
+
+  @observable
   List<VideoModel> video = [];
 
   late VideoPlayerController controller;
   @observable
   bool isPlaying = true;
-  
+
   @action
   Future<void> getData() async {
     try {
@@ -67,6 +75,7 @@ abstract class _StoreHome with Store {
   void toggleFollow() {
     isFollowing = !isFollowing;
   }
+
   @observable
   int favorite = 0;
 
@@ -74,31 +83,57 @@ abstract class _StoreHome with Store {
   String message = '';
 
   @observable
-  bool checkfavorite = true;
-  
+  bool checkfavorite = false;
+
   @action
-  void countFavorite(int updateFavorite){
-    if(checkfavorite){
+  void countFavorite(int updateFavorite) {
+    if (!checkfavorite) {
       favorite = updateFavorite + 1;
-    checkfavorite = false;
-    }else{
-    favorite = updateFavorite - 1;
-    checkfavorite = true;
+      checkfavorite = true;
+    } else {
+      favorite = updateFavorite - 1;
+      checkfavorite = false;
     }
   }
-  
 
-  @action 
-  Future<bool> updateFavorite({required String id,required VideoModel videos}) async{
-    VideoModel newVideo = VideoModel(video: videos.video, imgAvt: videos.imgAvt, userName: videos.userName, text: videos.text, textSong: videos.textSong, avtMusic: videos.avtMusic, favorite: favorite, message: videos.message, save: videos.save, share: videos.share, following: videos.following, followers: videos.followers, likes: videos.likes, nameAcc: videos.nameAcc);
+  @action
+  void setCheckFavorite(bool setcheckfavorite) {
+    checkfavorite = setcheckfavorite;
+  }
+
+  @action
+  void setFavorite(int setfavorite) {
+    favorite = setfavorite;
+  }
+
+  @action
+  Future<bool> updateFavorite(
+      {required String id, required VideoModel videos}) async {
+    VideoModel newVideo = VideoModel(
+        video: videos.video,
+        imgAvt: videos.imgAvt,
+        userName: videos.userName,
+        text: videos.text,
+        textSong: videos.textSong,
+        avtMusic: videos.avtMusic,
+        favorite: favorite,
+        message: videos.message,
+        save: videos.save,
+        share: videos.share,
+        following: videos.following,
+        followers: videos.followers,
+        likes: videos.likes,
+        nameAcc: videos.nameAcc,
+        checkFavorite: checkfavorite);
     try {
-      VideoModel video = await _videoServices.increaseFavorite(newUser: newVideo, id: id);
+      VideoModel video =
+          await _videoServices.increaseFavorite(newUser: newVideo, id: id);
       message = '+1 yêu hích';
+
       return true;
     } catch (e) {
       message = 'lỗi tùy chọn';
       return false;
     }
   }
-
 }

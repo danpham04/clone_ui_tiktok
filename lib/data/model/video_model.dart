@@ -14,6 +14,7 @@ class VideoModel {
   final int likes;
   final String nameAcc;
   final String id;
+  final bool? checkFavorite;
 
   VideoModel({
     required this.video,
@@ -31,6 +32,7 @@ class VideoModel {
     required this.likes,
     required this.nameAcc,
     this.id = '',
+    this.checkFavorite,
   });
 
   factory VideoModel.fromJson(Map<String, dynamic> map) {
@@ -49,7 +51,8 @@ class VideoModel {
         followers: map['followers'],
         following: map['following'],
         likes: map['likes'],
-        id: map['id']);
+        id: map['id'],
+        checkFavorite: map['checkFavorite']);
   }
 
   Map<String, dynamic> toJson() {
@@ -68,7 +71,8 @@ class VideoModel {
       'followers': followers,
       'likes': likes,
       'nameAcc': nameAcc,
-      'id': id
+      'id': id,
+      'checkFavorite' : checkFavorite
     };
   }
 

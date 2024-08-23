@@ -9,7 +9,7 @@ class VideoServices extends VideoRepository {
   @override
   Future<List<VideoModel>> getData({String? key, String? value}) async {
     try {
-      final response = await _restClient.get('/apihome');
+      final response = await _restClient.get("/apihome");
       if (response is List<dynamic>) {
         final video = response;
         final List<VideoModel> loadData = video.map((e) {

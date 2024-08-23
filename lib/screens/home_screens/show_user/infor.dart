@@ -25,7 +25,7 @@ class _InforState extends State<Infor> {
     return Column(
       children: [
         ClipOval(
-          child: Image.network(
+          child: Image.asset(
             widget.user.imgAvt,
             width: size.width * 0.28,
             height: size.height * 0.13,

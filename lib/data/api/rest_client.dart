@@ -6,7 +6,7 @@ class RestClient {
   RestClient({required String url}) {
     final BaseOptions options = BaseOptions(
         baseUrl: url,
-        connectTimeout: const Duration(seconds: 5),
+        connectTimeout: const Duration(seconds: 10),
         sendTimeout: const Duration(seconds: 5),
         contentType: Headers.jsonContentType);
     _dio = Dio(options);
@@ -40,7 +40,7 @@ class RestClient {
       );
       return response.data;
     } catch (e) {
-      rethrow ;
+      rethrow;
     }
   }
 
@@ -91,13 +91,12 @@ class RestClient {
   }
 
   Future<dynamic> delete(
-    String path,
-    {Object? data,
+    String path, {
+    Object? data,
     Map<String, dynamic>? queryParameters,
     Options? options,
     CancelToken? cancelToken,
-    }
-  ) async {
+  }) async {
     try {
       final Response<dynamic> response = await _dio.delete(
         path,
@@ -113,13 +112,13 @@ class RestClient {
   }
 
   Future<dynamic> patch(
-    String path,
-    {Object? data,
+    String path, {
+    Object? data,
     Map<String, dynamic>? queryParameters,
     Options? options,
     CancelToken? cancelToken,
-    void Function(int, int)? onReceiveProgress,}
-  ) async {
+    void Function(int, int)? onReceiveProgress,
+  }) async {
     try {
       final Response<dynamic> response = await _dio.patch(
         path,
